@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .winner{
+              color:blue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1><span id="player1" >0</span> to <span id="player2">0</span></h1>
+        <p>playing to:<span id="number">5</span></p>
+        <input type="number">
+        <button id="p1">player 1</button>
+        <button id="p2">player 2</button>
+        <button id="reset">reset</button>
+        <script>
+            var z=document.querySelector("#p2");
+            var k=document.querySelector("#p1");
+            var p1=document.querySelector("#player1");
+            var p2=document.querySelector("#player2");
+            var reset=document.querySelector("#reset");
+            var player1=0;
+            var player2=0;
+            var winning=5;
+            var gameover1="no";
+            var gameover2="no";
+            var input=document.querySelector("input");
+            var number=document.querySelector("#number");
+            k.addEventListener("click",function(){
+                if(gameover1!=="yes"){
+                player1++;
+                }
+                if(player1==winning){
+                    gameover1="yes";
+                    p1.classList.add("winner");
+                }
+                p1.textContent=player1;
+            });
+              z.addEventListener("click",function(){
+                if(gameover2!=="yes"){
+                player2++;
+                }
+                if(player2==winning){
+                    gameover2="yes";
+                    p2.classList.add("winner");
+                }
+                p2.textContent=player2;
+            });
+            reset.addEventListener("click",function(){
+                player1=0;
+                player2=0;
+                p1.textContent=0;
+                p2.textContent=0;
+                gameover1="no";
+                gameover2="no";
+                 p1.classList.remove("winner");
+                 p2.classList.remove("winner");
+            });
+            input.addEventListener("change",function(){
+                number.textContent=input.value;
+                winning=Number(input.value);
+            });
+        </script>
+    </body>
+</html>

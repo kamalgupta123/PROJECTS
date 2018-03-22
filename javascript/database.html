@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            var kam=[
+            {
+                movie:"kamal",
+                watched:true,
+                rating:5
+            },
+            {
+                movie:"komal",
+                watched:false,
+                rating:4
+            },
+            {
+                movie:"renu",
+                watched:true,
+                rating:3
+            }
+            
+            ]
+            for(var i=0;i<kam.length;i++){
+                var result="You have";
+                if(kam[i]["watched"]==true){
+                    result+=" watched";
+                }
+                else if(kam[i]["watched"]!==true){
+                    result+=" not seen";
+                }
+                result+=" \" " +kam[i]["movie"]+" \" -";
+                result+=+kam[i]["rating"]+"stars";
+                console.log(result);
+            }
+        </script>
+    </body>
+</html>

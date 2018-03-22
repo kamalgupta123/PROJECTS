@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function addsub(){
+            var a=prompt("enter the value of a");
+            var b=prompt("enter the value of b");
+            var c;
+            for(var i=0;i<2;i++){
+             cases=prompt("enter 1 for addition and 2 for substraction");
+            var d=parseInt(cases);
+            switch(d){
+                case 1:
+                   c=parseInt(a)+parseInt(b);
+                document.write(c);
+                    break;
+                 case 2:
+                   c=a-b;
+                document.write(c); 
+                    break;
+                default:
+                    document.write("wrong command");
+            }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="addsub" onclick="addsub()">
+</body>
+</html>

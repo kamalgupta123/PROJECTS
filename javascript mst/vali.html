@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="operators.html" method="post" name="formname" onsubmit="return check()">
+        username:<input type="text" name="username"><br>
+        email:<input type="email" name="email"><br>
+        <input type="submit">
+    </form>
+     <script>
+        function check(){
+            var z=document.formname.username;
+            var k=document.formname.email;
+            if(z.value.length==0){
+                z.focus();
+                alert("enter value");
+                return false;
+            }
+            if(k.value.length<10){
+                 k.focus();
+                alert("enter email greater than 10");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

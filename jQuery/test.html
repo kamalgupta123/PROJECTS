@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+    <style>
+        div{
+            background:green;
+            float:left;
+            width:100px;
+            height: 100px;
+            margin-left: 20px;
+            margin-right: 20px;          
+        }
+    </style>
+</head>
+<body>
+    <div class="highlight">kamal</div>
+    <div class="highlight">komal</div>
+    <div class="highlight">renu</div>
+    <button id="k">click</button>
+    <script type="text/javascript">
+               $('#k').click(function(){
+   $('.highlight').animate({
+       fontSize:"+=20px"
+   });
+});
+    </script>
+</body>
+</html>

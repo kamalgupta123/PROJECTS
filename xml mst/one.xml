@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="abc.css"?>
+<!DOCTYPE Name[
+ <!ELEMENT Name (FirstName,LastName)>
+ <!ELEMENT FirstName (#PCDATA)>
+ <!ELEMENT LastName (#PCDATA)> 
+]>
+<Name>
+    <FirstName>kamal</FirstName>
+    <LastName>gupta</LastName>
+</Name>

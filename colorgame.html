@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+             body{
+                background-color: #232323;
+                 margin:0px;
+            }
+            .square{
+               background:purple;
+               float:left;
+               width:30%;
+               margin:1.66%;
+               padding-bottom: 30%;
+               border-radius:15%;
+                transition:background 0.6s;
+            }
+            #container{
+                width:400px;
+                margin-left: auto;
+                margin-right:auto;
+                padding:20px 20px;
+            }
+            h1{
+                color:white;
+                background:steelblue;
+                margin:0px;
+                text-align: center;
+                text-transform:uppercase;
+                font-family: "Montserrat","Avenir";
+                font-weight:normal;
+                padding-top:15px;
+                padding-bottom:15px;
+                line-height: 1.1;
+            }
+            #spectre{
+                background:white;
+                height: 30px;
+                text-align: center;
+                color:#232323;
+            }
+            .selected{
+                background: steelblue;
+                color:white;
+            }
+            #result{
+                font-size: 50px;
+            }
+            button{
+                border:none;
+                background:none;
+                color:steelblue;
+                font-weight:700;
+                text-transform:uppercase;
+                padding-top: 6px;
+                padding-top: 6.5px;
+                padding-bottom: auto;
+                height:100%;
+                transition:all 0.2s;
+                outline:none;
+            }
+            button:hover{
+                 background: steelblue;
+                color:white;
+            }
+            #todo{
+                display:inline-block;
+                width:160px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>The 
+            <br><span id="result">RGB</span> 
+            <br>color game</h1>
+        <div id="spectre">
+        <button id="reset">new colors</button>
+        <span id="todo"></span>
+        <button id="btneasy">easy</button>
+        <button class="selected" id="btnhard">hard</button>
+        </div>
+        <div id="container">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+          <script>
+            var number=6;
+            var btneasy=document.querySelector("#btneasy");
+            var btnhard=document.querySelector("#btnhard");
+            var resetButton=document.querySelector("#reset");
+            var color=getRandomColors(number);
+            var resultcolor=randomColor();
+            var todo=document.querySelector("#todo");
+            var h=document.querySelector("h1");
+            var clickedcolor;
+            var result=document.querySelector("#result");
+             result.textContent=resultcolor;
+            var squares=document.querySelectorAll(".square");
+            btneasy.addEventListener("click",function(){
+                btneasy.classList.add("selected");
+                btnhard.classList.remove("selected");
+                number=3;
+                color=getRandomColors(number);
+                 resultcolor=randomColor();
+                 result.textContent=resultcolor;
+                  for(var i=0;i<squares.length;i++){
+                      if(color[i]){
+                   squares[i].style.background=color[i];
+                  }
+                      else{
+                          squares[i].style.background="none";
+                      }
+                  }
+            });
+             btnhard.addEventListener("click",function(){
+                btneasy.classList.remove("selected");
+                btnhard.classList.add("selected");
+                 number=6;
+                 color=getRandomColors(number);
+                 resultcolor=randomColor();
+                 result.textContent=resultcolor;
+                  for(var i=0;i<squares.length;i++){
+                     squares[i].style.background=color[i];
+                     squares[i].style.background="block";   
+                  }
+            });
+            resetButton.addEventListener("click",function(){
+                color=getRandomColors(number);
+                resultcolor=randomColor();
+                result.textContent=resultcolor;
+                this.textContent="new colors";
+                todo.textContent="";
+                 for(var i=0;i<squares.length;i++){
+                squares[i].style.background=color[i];}
+                h.style.background="steelblue";
+            });
+            for(var i=0;i<squares.length;i++){
+                squares[i].style.background=color[i];
+                 squares[i].addEventListener("click",function(){
+                  clickedcolor=this.style.background;   
+                if (clickedcolor===resultcolor){
+                  todo.textContent="correct";
+                    changeColor(clickedcolor);
+                    resetButton.textContent="play again";
+                    h.style.background=clickedcolor;
+                    }
+                else{
+                   todo.textContent="wrong";
+                    this.style.background="#232323";
+                    }
+            });
+             }
+              function getRandomColors(num){
+                  var arr=[];
+                for(var i=0;i<num;i++){
+                  arr.push(randomC());
+                }
+                  return arr;
+              }
+              function changeColor(color){
+                   for(var i=0;i<squares.length;i++){
+                       squares[i].style.background=color;
+                   }
+              }
+              function randomColor(){
+                  var n=Math.floor(Math.random()*color.length);
+                      return color[n];
+              }
+              function randomC(){
+                  var r=Math.floor(Math.random()*256);
+                  var b=Math.floor(Math.random()*256);
+                  var g=Math.floor(Math.random()*256);
+                  return "rgb("+r+", "+g+", "+b+")";
+              }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+</head>
+<body>
+    <form action="Registration.php" method="get" onsubmit="return validation()">
+        <input type="text" name="personname">
+        <input type="submit">
+    </form>
+    <script>
+    function validation(){
+        var s=document.querySelectorAll("input");
+        if(s[0].value==" "){
+            alert("enter your name");
+            return false;
+        }
+        return true;
+    }
+    </script>
+</body>
+</html>

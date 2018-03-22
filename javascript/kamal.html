@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+             var k=["kamal"];
+            var t=prompt("what to do?");
+            while(t!=="quit"){
+                if(t=="list"){
+                   console.log("**********");
+                   k.forEach(function(u,i){
+                   console.log(i+" : "+u);      
+                   });
+                   console.log("**********"); 
+                }
+            else if(t=="new"){
+                var z=prompt("Enter new element?");
+                k.push(z);
+                console.log("element added");
+            }
+            else if(t=="delete"){
+                var e=prompt("which element to delete");
+                k.splice(e,1);
+                console.log("element deleted");
+            }
+                t=prompt("what to do?");
+                }
+            console.log("quit");
+        </script>
+    </head>
+    <body>
+        <ol>
+            <li>new</li>
+            <li>list</li>
+            <li>quit</li>
+            <li>delete</li>
+        </ol>
+    </body>
+</html>

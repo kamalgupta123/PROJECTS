@@ -1,0 +1,3 @@
+<!ELEMENT Name (FirstName,LastName)>
+ <!ELEMENT FirstName (#PCDATA)>
+ <!ELEMENT LastName (#PCDATA)>

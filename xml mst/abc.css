@@ -1,0 +1,7 @@
+Name{
+    border:2px solid red;
+}
+FirstName,LastName{
+    background: yellow;
+    display: block;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>bombay</h1>
+        <ul>
+        <li>kamal</li>
+        <li>komal</li>
+        <li>renu</li>
+        </ul>
+        <script>
+            var h=document.querySelector("h1");
+            h.addEventListener("click",function(){
+                alert("button was clicked");
+            })
+            h.addEventListener("click",function(){
+                h.style.background="pink";
+                h.innerHTML="kamal";
+            })
+            var lis=document.querySelectorAll("li");
+            for(var i=0;i<lis.length;i++){
+                lis[i].addEventListener("click",function(){lis[i].style.color="pink";});
+            }
+        </script>
+    </body>
+</html>
